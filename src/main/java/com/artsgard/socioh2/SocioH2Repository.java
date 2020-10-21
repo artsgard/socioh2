@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface SocioH2Repository extends JpaRepository<SocioModel, Long> {
 
     SocioModel findByUsername(String username);
+    SocioModel findByEmail(String email);
 }
