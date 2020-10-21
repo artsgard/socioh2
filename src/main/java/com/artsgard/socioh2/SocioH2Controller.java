@@ -61,7 +61,7 @@ public class SocioH2Controller {
      */
     @GetMapping(path = "/username/{username}", produces = "application/json")
     public ResponseEntity<SocioModel> findSocioByUsername(@PathVariable String username) {
-        SocioModel socio = socioH2Repository.findByUsername(username);
+        SocioModel socio = socioH2Repository.findByFirstName(username);
         if (socio != null) {
             return new ResponseEntity<>(socio, HttpStatus.OK);
         } else {
@@ -69,6 +69,11 @@ public class SocioH2Controller {
         }
     }
     
+    /**
+     * 
+     * @param email
+     * @return single socio
+     */
     @GetMapping(path = "/email/{email}", produces = "application/json")
     public ResponseEntity<SocioModel> findSocioByEmail(@PathVariable String email) {
         SocioModel socio = socioH2Repository.findByEmail(email);
