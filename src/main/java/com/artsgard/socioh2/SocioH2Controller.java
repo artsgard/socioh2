@@ -69,6 +69,16 @@ public class SocioH2Controller {
         }
     }
     
+    @GetMapping(path = "/email/{email}", produces = "application/json")
+    public ResponseEntity<SocioModel> findSocioByEmail(@PathVariable String email) {
+        SocioModel socio = socioH2Repository.findByEmail(email);
+        if (socio != null) {
+            return new ResponseEntity<>(socio, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
     /**
      *
      * @param socioDTO
