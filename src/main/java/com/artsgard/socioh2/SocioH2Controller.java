@@ -61,7 +61,7 @@ public class SocioH2Controller {
      */
     @GetMapping(path = "/username/{username}", produces = "application/json")
     public ResponseEntity<SocioModel> findSocioByUsername(@PathVariable String username) {
-        SocioModel socio = socioH2Repository.findByFirstName(username);
+        SocioModel socio = socioH2Repository.findByUsername(username);
         if (socio != null) {
             return new ResponseEntity<>(socio, HttpStatus.OK);
         } else {
