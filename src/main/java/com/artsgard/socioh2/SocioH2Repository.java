@@ -8,4 +8,5 @@ public interface SocioH2Repository extends JpaRepository<SocioModel, Long> {
 
     SocioModel findByUsername(String username);
     SocioModel findByEmail(String email);
+    SocioModel findByFirstName(String name);
 }
