@@ -100,6 +100,22 @@ public class SocioH2Controller {
     }
     
     /**
+     * 
+     * @param lastName
+     * @return single socio
+     */
+    @GetMapping(path = "/lastName/{name}", produces = "application/json")
+    public ResponseEntity<SocioModel> findSocioByFirstName(@PathVariable String name) {
+        SocioModel socio = socioH2Repository.findByFirstName(name);
+        if (socio != null) {
+            return new ResponseEntity<>(socio, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    
+    /**
      *
      * @param socioDTO
      * @return status created/ save socio
