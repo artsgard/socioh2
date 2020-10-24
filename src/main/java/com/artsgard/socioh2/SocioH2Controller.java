@@ -87,7 +87,7 @@ public class SocioH2Controller {
     /**
      * 
      * @param lastName
-     * @return 
+     * @return single socio
      */
     @GetMapping(path = "/lastName/{lastName}", produces = "application/json")
     public ResponseEntity<SocioModel> findSocioByLastName(@PathVariable String lastName) {
